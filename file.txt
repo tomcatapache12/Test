@@ -1,5 +1,1 @@
-As part of our recent change in hosting strategy, we moved the static web assets from AEM (previously hosted in FarDMZ) to a new location in NearDMZ, which resides in a different region. This shift necessitated the port opening between the regions to ensure the browser can continue to retrieve the static content as expected.
 
-Functionally, there is no change in the application design—it's still serving the same static content to the UI. The update was primarily infrastructural, focused on optimizing hosting placement and streamlining asset delivery.
-
-At the time, this change was considered minimal from an application flow perspective, and hence no formal design review was captured. However, we acknowledge that cross-region dependencies do merit broader visibility, and we’re happy to retrospectively document the rationale and update our design notes accordingly.
