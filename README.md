@@ -1,17 +1,13 @@
-Thank You & Goodbye
-
-Hi Team,
-
-As today marks my last day at Goldman Sachs, I wanted to take a moment to express my heartfelt thanks to all of you. Working in the Mosaic team has been an incredible experience — one filled with great learning, collaboration, and a sense of shared purpose that made every project meaningful.
-
-I feel truly fortunate to have worked alongside such talented, dedicated, and supportive people. The exposure I gained here — from building resilient systems to tackling challenging design problems — has shaped me both professionally and personally.
-
-A special thanks to everyone I’ve closely worked with on the Mosaic platform and related initiatives — your guidance, teamwork, and encouragement have made my journey memorable.
-
-While I’m moving on to explore a new opportunity, I’ll always carry forward the values, friendships, and experiences I’ve gained here. Please feel free to stay in touch — you can reach me at [your personal email ID] or on LinkedIn ([your LinkedIn link]).
-
-Wishing all of you continued success and growth ahead!
-
-Warm regards,
-Angad Yadav
-Mosaic Team
+Hi all —
+I’ve started the initial investigation on this issue.
+From the checkout response analysis, the unexpected airline credit deduction appears to be coming from the priced product breakdown returned by FSS (Flight Service). Specifically, the breakdown section includes an airline credit component that is being propagated into the checkout total object, even when no airline credit option is explicitly selected on the UI.
+I was able to reproduce this once in lab, but subsequent attempts were inconsistent. I’m currently working on a deeper trace (local + lab) to identify:
+In which flow the airline credit brick is being added to the breakdown list
+Whether this originates directly from Flight Service or is being transformed/augmented downstream (FNG/SUS)
+If this is configuration-driven or tied to a recent change
+At this point, it appears Flight Service may be behaving as designed, but I’m validating that assumption before concluding.
+Investigation is ongoing. I’ll share a confirmed root cause along with a precise ETA once we determine:
+Where the incorrect breakdown entry is introduced
+The scope of impact across services
+The remediation approach (service fix vs. transformation guard)
+Please allow some time for a thorough root cause analysis. I’ll provide a structured update shortly.
